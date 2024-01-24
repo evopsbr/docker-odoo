@@ -23,14 +23,14 @@ if [ $UID -eq 0 ]; then
     chown odoo:odoo /opt/.ssh/id_rsa
     chown odoo:odoo /opt/.ssh/id_rsa.pub
 
+  fi
+
     # Altera as permissões
     chown -R odoo:odoo /opt
     chown -R odoo:odoo /var/log/odoo
     chown odoo:odoo /etc/odoo/odoo.conf
     chown odoo:odoo /var/run/odoo.pid
     chown odoo:odoo /opt/odoo/autoupdate
-
-  fi
 
   # Quando atualizando é bom deixar o log aparecer no terminal
   if [ $DISABLE_LOGFILE == 1 ]; then
@@ -48,31 +48,6 @@ export PATH="/opt/odoo/odoo:$PATH"
 
 echo "Iniciando o entrypoint com odoo"
 cd /opt/odoo
-
-# Se existir a chave tenta baixar os repositórios privados
-if [ -f /opt/.ssh/id_rsa ]; then
-  ssh-keyscan github.com >> ~/.ssh/known_hosts
-  ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts
-
-  if [ $ODOO_ENTERPRISE == 1 ]; then
-    if [ ! -d enterprise ]; then
-      git clone --single-branch -v -b $ODOO_VERSION git@github.com:Trust-Code/enterprise.git
-    fi
-  fi
-
-  if [ $TRUSTCODE_APPS == 1 ]; then
-    if [ ! -d trustcode-apps ]; then
-      git clone --single-branch -v -b $ODOO_VERSION git@github.com:Trust-Code/advanced-apps.git
-    fi
-  fi
-
-  if [ $USE_SPECIFIC_REPO == 1 ]; then
-    if [ ! -d $CLIENT_REPOSITORY ]; then
-      git clone --single-branch -v -b $ODOO_VERSION git@github.com:Trust-Code/$CLIENT_REPOSITORY.git
-    fi
-  fi
-
-fi
 
 # Monta o addons_path
 directories=$(ls -d -1 $PWD/**)
