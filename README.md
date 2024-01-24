@@ -20,8 +20,6 @@ Other parameters:
 * WORKERS=3
 * ODOO_PASSWORD=senha_admin
 * DISABLE_LOGFILE=0
-* ODOO_ENTERPRISE=1
-* TRUSTCODE_ENTERPRISE=1
 * ODOO_VERSION=14.0
 
 Example: Switching the port on which Odoo will listen to:
