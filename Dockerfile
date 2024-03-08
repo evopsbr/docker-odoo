@@ -9,7 +9,6 @@ RUN wget https://github.com/odoo/odoo/archive/17.0.zip -O odoo.zip && \
 RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-17.0 odoo && \
     unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-17.0 odoo-brasil && \
     cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
-    find . -path "*l10n_*" -delete && \
     rm -R debian && rm -R doc && rm -R setup && cd ..
 
 RUN pip3 install -r /opt/odoo/odoo/requirements.txt
