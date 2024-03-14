@@ -11,14 +11,17 @@ RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-17.0 odoo && \
     cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
     rm -R debian && rm -R doc && rm -R setup && cd ..
 
+RUN pip3 install --upgrade pip
+RUN pip3 install psycopg2-binary==2.9.9
+# Remove psycopg because it's not installable
+RUN sed -i '/psycopg2/d' /opt/odoo/odoo/requirements.txt
 RUN pip3 install -r /opt/odoo/odoo/requirements.txt
 RUN pip3 install -r /opt/odoo/odoo-brasil/requirements.txt
 
 ##### Configurações Odoo #####
 
 ADD deploy/odoo.conf /etc/odoo/
-RUN chown -R odoo:odoo /opt && \
-    chown -R odoo:odoo /etc/odoo/odoo.conf
+RUN chown -R odoo:odoo /opt && chown odoo:odoo /etc/odoo/odoo.conf
 
 RUN mkdir /opt/.ssh && \
     chown -R odoo:odoo /opt/.ssh
@@ -48,6 +51,7 @@ ENV TIME_CPU=6000
 ENV TIME_REAL=7200
 ENV DB_FILTER=False
 ENV EXTRA_ARGS=''
+ENV LIST_DB=True
 
 VOLUME ["/opt/", "/etc/odoo"]
 ENTRYPOINT ["/opt/odoo/entrypoint.sh"]
