@@ -1,4 +1,4 @@
-# Trustcode - Oficial docker image for Odoo 
+# EvoPS - Oficial docker image for Odoo 
 
 How do use this docker image ?
 ---------------------
@@ -6,7 +6,7 @@ How do use this docker image ?
 tldr; Minimal command to run this image
 
 ```bash
-▶ docker run --name odoo --net host -d -e PG_USER=odoo -e PG_PASSWORD=odoo trustcode/docker-odoo:14.0
+▶ docker run --name odoo --net host -d -e PG_USER=odoo -e PG_PASSWORD=odoo evopsbr/docker-odoo:16.0
 ```
 
 Other parameters:
@@ -22,12 +22,12 @@ Other parameters:
 * DISABLE_LOGFILE=0
 * ODOO_ENTERPRISE=1
 * TRUSTCODE_ENTERPRISE=1
-* ODOO_VERSION=14.0
+* ODOO_VERSION=16.0
 
 Example: Switching the port on which Odoo will listen to:
 
 ```bash
-▶ docker run --name odoo --net host -d -e PG_USER=odoo -e PG_PASSWORD=odoo -e PORT=8050 trustcode/docker-odoo:14.0
+▶ docker run --name odoo --net host -d -e PG_USER=odoo -e PG_PASSWORD=odoo -e PORT=8050 evopsbr/docker-odoo:16.0
 ```
 
 Preferred way:
@@ -40,7 +40,7 @@ Create a docker-compose file following this example:
 version: '3'
 services:
   odoo-update:
-    image: trustcode/docker-odoo:14.0
+    image: evopsbr/docker-odoo:16.0
     network_mode: host
     volumes:
       - ~/.ssh:/home/temp/.ssh
@@ -48,7 +48,7 @@ services:
     environment:
       PG_USER: postgres_user
       PG_PASSWORD: 123
-      ODOO_VERSION: 14.0
+      ODOO_VERSION: 16.0
       ODOO_ENTERPRISE: 1
       TRUSTCODE_ENTERPRISE: 1
       DATABASE: database
@@ -78,11 +78,11 @@ Download the latest version of this docker image and follow below. We run daily 
 
 If you want to update your Odoo instance just add to your docker-compose file the following command:
 ```yaml
-    image: trustcode/docker-odoo:14.0
+    image: evopsbr/docker-odoo:16.0
     command: autoupdate
     network_mode: host
 ```
-But before run this you should install the module "module_auto_update", without the module installed in the database the above command will not update Odoo. More info on the [module](https://github.com/OCA/server-tools/tree/14.0/module_auto_update).
+But before run this you should install the module "module_auto_update", without the module installed in the database the above command will not update Odoo. More info on the [module](https://github.com/OCA/server-tools/tree/16.0/module_auto_update).
 
 
 Using for development and testing:
@@ -93,6 +93,6 @@ Download this repository, change the environment variables in docker-compose.yml
 ▶ docker-compose build && docker-compose up
 ```
 
-Trustcode Sistemas Empresariais
+Evolution Professional Services
 ----------------
-![Trustcode](http://www.trustcode.com.br/logo.png)
+![EvoPS](http://www.evops.com.br)
