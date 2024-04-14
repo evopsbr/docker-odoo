@@ -21,7 +21,6 @@ Other parameters:
 * ODOO_PASSWORD=senha_admin
 * DISABLE_LOGFILE=0
 * ODOO_ENTERPRISE=1
-* TRUSTCODE_ENTERPRISE=1
 * ODOO_VERSION=16.0
 
 Example: Switching the port on which Odoo will listen to:
@@ -50,7 +49,6 @@ services:
       PG_PASSWORD: 123
       ODOO_VERSION: 16.0
       ODOO_ENTERPRISE: 1
-      TRUSTCODE_ENTERPRISE: 1
       DATABASE: database
       DISABLE_LOGFILE: 1
       TIME_CPU: 600
@@ -60,7 +58,6 @@ services:
 Parameters:
 
 - ODOO_ENTERPRISE - download the enterprise version (it needs a valid ssh key to be mounted under /home/temp/.ssh)
-- TRUSTCODE_ENTERPRISE - download private modules from Trustcode
 - DATABASE - optional database name (required if you use autoupdate command when run the image)
 - DISABLE_LOGFILE - disable odoo logs to a file, instead output to standard (useful with autoupdate)
 - TIME_CPU - cpu limit before timeout
