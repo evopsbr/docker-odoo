@@ -1,4 +1,4 @@
-# Paloschi Sistemas - Oficial docker image for Odoo 17
+# EvoPS - Oficial docker image for Odoo 17
 
 How do use this docker image ?
 ---------------------
@@ -6,7 +6,7 @@ How do use this docker image ?
 tldr; Minimal command to run this image
 
 ```bash
-▶ docker run --name odoo --net host -d -e PG_USER=odoo -e PG_PASSWORD=odoo paloschisistemas/docker-odoo:17.0
+▶ docker run --name odoo --net host -d -e PG_USER=odoo -e PG_PASSWORD=odoo evopsbr/docker-odoo:17.0
 ```
 
 Other parameters:
@@ -25,7 +25,7 @@ Other parameters:
 Example: Switching the port on which Odoo will listen to:
 
 ```bash
-▶ docker run --name odoo --net host -d -e PG_USER=odoo -e PG_PASSWORD=odoo -e PORT=8050 paloschisistemas/docker-odoo:17.0
+▶ docker run --name odoo --net host -d -e PG_USER=odoo -e PG_PASSWORD=odoo -e PORT=8050 evopsbr/docker-odoo:17.0
 ```
 
 Preferred way:
@@ -38,7 +38,7 @@ Create a docker-compose file following this example:
 version: '3'
 services:
   odoo-update:
-    image: paloschisistemas/docker-odoo:17.0
+    image: evopsbr/docker-odoo:17.0
     network_mode: host
     volumes:
       - ~/.ssh:/home/temp/.ssh
@@ -72,7 +72,7 @@ Download the latest version of this docker image and follow below. We run daily 
 
 If you want to update your Odoo instance just add to your docker-compose file the following command:
 ```yaml
-    image: paloschisistemas/docker-odoo:17.0
+    image: evopsbr/docker-odoo:17.0
     command: autoupdate
     network_mode: host
 ```
@@ -87,5 +87,5 @@ Download this repository, change the environment variables in docker-compose.yml
 ▶ docker-compose build && docker-compose up
 ```
 
-Paloschi Sistemas
+EvoPS
 ----------------

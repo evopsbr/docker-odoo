@@ -1,10 +1,10 @@
-FROM paloschisistemas/docker-odoo-base:17.0
+FROM evopsbr/docker-odoo-base:17.0
 
 ##### Repositórios #####
 WORKDIR /opt/odoo
 
 RUN wget https://github.com/odoo/odoo/archive/17.0.zip -O odoo.zip && \
-    wget https://github.com/paloschisistemas/odoo-brasil/archive/17.0.zip -O odoo-brasil.zip
+    wget https://github.com/evopsbr/odoo-brasil/archive/17.0.zip -O odoo-brasil.zip
 
 RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-17.0 odoo && \
     unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-17.0 odoo-brasil && \
