@@ -53,9 +53,9 @@ RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
 RUN pip3 install --no-cache-dir -r account-financial-reporting/requirements.txt
 #RUN pip3 install --no-cache-dir -r account-financial-reporting/oca_dependencies.txt 
 ## Install mis-builder requirements.
-RUN pip3 install --no-cache-dir -r mis-builder/oca_dependencies.txt 
+#RUN pip3 install --no-cache-dir -r mis-builder/oca_dependencies.txt 
 ## Install commission requirements.
-RUN pip3 install --no-cache-dir -r commission/oca_dependencies.txt 
+#RUN pip3 install --no-cache-dir -r commission/oca_dependencies.txt 
 ## Install l10n-brazil requirements.
 RUN pip3 install --no-cache-dir -r l10n-brazil/requirements.txt
 #RUN pip3 install --no-cache-dir -r l10n-brazil/oca_dependencies.txt
