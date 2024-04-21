@@ -47,7 +47,6 @@ RUN pip3 install --no-cache-dir -r account-reconcile/requirements.txt
 RUN pip3 install --no-cache-dir -r account-reconcile/oca_dependencies.txt
 ## Install server-ux requirements.
 RUN pip3 install --no-cache-dir -r server-ux/requirements.txt
-RUN pip3 install --no-cache-dir -r server-ux/oca_dependencies.txt
 RUN pip3 install --no-cache-dir -r server-ux/test-requirements.txt 
 ## Install reporting-engine requirements.
 RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
