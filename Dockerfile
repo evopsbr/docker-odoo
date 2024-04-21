@@ -49,17 +49,16 @@ RUN pip3 install --no-cache-dir -r server-ux/requirements.txt
 RUN pip3 install --no-cache-dir -r server-ux/test-requirements.txt 
 ## Install reporting-engine requirements.
 RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
-RUN pip3 install --no-cache-dir -r reporting-engine/oca_dependencies.txt 
 ## Install account-financial-reporting requirements.
 RUN pip3 install --no-cache-dir -r account-financial-reporting/requirements.txt
-RUN pip3 install --no-cache-dir -r account-financial-reporting/oca_dependencies.txt 
+#RUN pip3 install --no-cache-dir -r account-financial-reporting/oca_dependencies.txt 
 ## Install mis-builder requirements.
 RUN pip3 install --no-cache-dir -r mis-builder/oca_dependencies.txt 
 ## Install commission requirements.
 RUN pip3 install --no-cache-dir -r commission/oca_dependencies.txt 
 ## Install l10n-brazil requirements.
 RUN pip3 install --no-cache-dir -r l10n-brazil/requirements.txt
-RUN pip3 install --no-cache-dir -r l10n-brazil/oca_dependencies.txt
+#RUN pip3 install --no-cache-dir -r l10n-brazil/oca_dependencies.txt
 RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 ## Install COD137-APPS requirements.
 RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
