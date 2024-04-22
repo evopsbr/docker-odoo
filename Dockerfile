@@ -14,7 +14,8 @@ RUN wget https://github.com/odoo/odoo/archive/14.0.zip -O odoo.zip && \
     wget https://github.com/OCA/commission/archive/14.0.zip -O commission.zip && \
     wget https://github.com/odoo/design-themes/archive/14.0.zip -O design-themes.zip && \
     wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
-    wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip
+    wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
+    wget https://codeload.github.com/OCA/queue/zip/refs/heads/14.0 -O queue.zip
 #    wget https://github.com/evopsbr/odoo-brasil/archive/14.0.zip -O odoo-brasil.zip && \
 
 RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo && \
@@ -28,6 +29,7 @@ RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo && \
     unzip -q design-themes.zip && rm design-themes.zip && mv design-themes-14.0 design-themes && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil && \
     unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps && \
+    unzip -q queue.zip && rm queue.zip && mv queue-14.0 queue && \
     cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
     rm -R debian && rm -R doc && rm -R setup && cd ..
 #    unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-14.0 odoo-brasil && \
@@ -49,17 +51,14 @@ RUN pip3 install --no-cache-dir -r server-ux/test-requirements.txt
 RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
 ## Install account-financial-reporting requirements.
 RUN pip3 install --no-cache-dir -r account-financial-reporting/requirements.txt
-#RUN pip3 install --no-cache-dir -r account-financial-reporting/oca_dependencies.txt 
-## Install mis-builder requirements.
-#RUN pip3 install --no-cache-dir -r mis-builder/oca_dependencies.txt 
-## Install commission requirements.
-#RUN pip3 install --no-cache-dir -r commission/oca_dependencies.txt 
 ## Install l10n-brazil requirements.
 RUN pip3 install --no-cache-dir -r l10n-brazil/requirements.txt
 #RUN pip3 install --no-cache-dir -r l10n-brazil/oca_dependencies.txt
 RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 ## Install COD137-APPS requirements.
 RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
+## Install QUEUE requirements.
+RUN pip3 install --no-cache-dir -r queue/requirements.txt
 
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
