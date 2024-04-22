@@ -30,8 +30,8 @@ RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil && \
     unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-14.0 odoo-brasil && \
     unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps && \
-    cd odoo && rm -R debian && rm -R doc && rm -R setup && cd ..
-#    cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
+    cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
+    rm -R debian && rm -R doc && rm -R setup && cd ..
 #    find . -path "*l10n_*" -delete && \
 #    rm -R debian && rm -R doc && rm -R setup && cd ..
     
