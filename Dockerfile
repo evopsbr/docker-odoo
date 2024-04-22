@@ -14,9 +14,8 @@ RUN wget https://github.com/odoo/odoo/archive/14.0.zip -O odoo.zip && \
     wget https://github.com/OCA/commission/archive/14.0.zip -O commission.zip && \
     wget https://github.com/odoo/design-themes/archive/14.0.zip -O design-themes.zip && \
     wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
-    wget https://github.com/evopsbr/odoo-brasil/archive/14.0.zip -O odoo-brasil.zip && \
     wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip
-
+#    wget https://github.com/evopsbr/odoo-brasil/archive/14.0.zip -O odoo-brasil.zip && \
 
 RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo && \
     unzip -q web.zip && rm web.zip && mv web-14.0 web && \
@@ -28,12 +27,11 @@ RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo && \
     unzip -q commission.zip && rm commission.zip && mv commission-14.0 commission && \
     unzip -q design-themes.zip && rm design-themes.zip && mv design-themes-14.0 design-themes && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil && \
-    unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-14.0 odoo-brasil && \
     unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps && \
     cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
     rm -R debian && rm -R doc && rm -R setup && cd ..
+#    unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-14.0 odoo-brasil && \
 #    find . -path "*l10n_*" -delete && \
-#    rm -R debian && rm -R doc && rm -R setup && cd ..
     
 ## Update PIP3.
 RUN pip3 install setuptools && pip3 install --no-cache-dir --upgrade pip
@@ -63,7 +61,8 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 ## Install COD137-APPS requirements.
 RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
 
-RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
+#RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
+RUN pip3 install --no-cache-dir Iugu
 RUN pip3 install --no-cache-dir signxml==2.9.0
 RUN pip3 install --no-cache-dir pyopenssl==22.1.0
 RUN pip3 install --no-cache-dir formio-data==0.4.5
