@@ -15,7 +15,9 @@ RUN wget https://github.com/odoo/odoo/archive/14.0.zip -O odoo.zip && \
     wget https://github.com/odoo/design-themes/archive/14.0.zip -O design-themes.zip && \
     wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
-    wget https://codeload.github.com/OCA/queue/zip/refs/heads/14.0 -O queue.zip
+    wget https://codeload.github.com/OCA/queue/zip/refs/heads/14.0 -O queue.zip && \
+    wget https://codeload.github.com/OCA/manufacture/zip/refs/heads/14.0 -O manufacture.zip && \
+    wget https://codeload.github.com/OCA/account-financial-tools/zip/refs/heads/14.0 -O account-financial-tools.zip
 #    wget https://github.com/evopsbr/odoo-brasil/archive/14.0.zip -O odoo-brasil.zip && \
 
 RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo && \
@@ -30,6 +32,8 @@ RUN unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil && \
     unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps && \
     unzip -q queue.zip && rm queue.zip && mv queue-14.0 queue && \
+    unzip -q manufacture.zip && rm manufacture.zip && mv manufacture-14.0 manufacture && \
+    unzip -q account-financial-tools.zip && rm account-financial-tools.zip && mv account-financial-tools-14.0 account-financial-tools && \
     cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
     rm -R debian && rm -R doc && rm -R setup && cd ..
 #    unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-14.0 odoo-brasil && \
@@ -59,6 +63,8 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
 ## Install QUEUE requirements.
 RUN pip3 install --no-cache-dir -r queue/requirements.txt
+## Install account-financial-tools requirements.
+RUN pip3 install --no-cache-dir -r account-financial-tools/requirements.txt
 
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
