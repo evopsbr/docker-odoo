@@ -77,7 +77,7 @@ RUN wget https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O ser
     unzip -q server-tools.zip && rm server-tools.zip && mv server-tools-14.0 server-tools
 
 ## Install community-data-files requirements.
-RUN https://codeload.github.com/OCA/community-data-files/zip/refs/heads/14.0 -O community-data-files.zip && \
+RUN wget https://codeload.github.com/OCA/community-data-files/zip/refs/heads/14.0 -O community-data-files.zip && \
     unzip -q community-data-files.zip && rm community-data-files.zip && mv community-data-files-14.0 community-data-files
 
 ## Install l10n-brazil requirements.
