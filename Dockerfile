@@ -76,6 +76,10 @@ RUN wget https://codeload.github.com/OCA/manufacture/zip/refs/heads/14.0 -O manu
 RUN wget https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O server-tools.zip && \
     unzip -q server-tools.zip && rm server-tools.zip && mv server-tools-14.0 server-tools
 
+## Install community-data-files requirements.
+RUN https://codeload.github.com/OCA/community-data-files/zip/refs/heads/14.0 -O community-data-files.zip && \
+    unzip -q community-data-files.zip && rm community-data-files.zip && mv community-data-files-14.0 community-data-files
+
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -138,6 +142,9 @@ RUN pip3 install --no-cache-dir formio-data==0.4.5
 
 ## Install server-tools requirements.
 RUN pip3 install --no-cache-dir -r server-tools/requirements.txt
+
+## Install community-data-files requirements.
+RUN pip3 install --no-cache-dir -r community-data-files/requirements.txt
 
 ## Install l10n-brazil requirements.
 RUN pip3 install --no-cache-dir -r l10n-brazil/requirements.txt
