@@ -72,6 +72,10 @@ RUN wget https://codeload.github.com/OCA/manufacture/zip/refs/heads/14.0 -O manu
 #RUN wget https://github.com/evopsbr/odoo-brasil/archive/14.0.zip -O odoo-brasil.zip && \
 #    unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-14.0 odoo-brasil
 
+## Download server-tools.
+RUN https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O server-tool.zip && \
+    unzip -q server-tools.zip && rm server-tools.zip && mv server-tools-14.0 server-tools
+
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -131,6 +135,9 @@ RUN pip3 install --no-cache-dir Iugu
 RUN pip3 install --no-cache-dir signxml==2.9.0
 RUN pip3 install --no-cache-dir pyopenssl==22.1.0
 RUN pip3 install --no-cache-dir formio-data==0.4.5
+
+## Install server-tools requirements.
+RUN pip3 install --no-cache-dir -r server-tools/requirements.txt
 
 ## Install l10n-brazil requirements.
 RUN pip3 install --no-cache-dir -r l10n-brazil/requirements.txt
