@@ -73,7 +73,7 @@ RUN wget https://codeload.github.com/OCA/manufacture/zip/refs/heads/14.0 -O manu
 #    unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-14.0 odoo-brasil
 
 ## Download server-tools.
-RUN https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O server-tool.zip && \
+RUN wget https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O server-tool.zip && \
     unzip -q server-tools.zip && rm server-tools.zip && mv server-tools-14.0 server-tools
 
 ## Install l10n-brazil requirements.
