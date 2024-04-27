@@ -36,6 +36,10 @@ RUN wget https://codeload.github.com/OCA/account-reconcile/zip/refs/heads/14.0 -
 RUN wget https://codeload.github.com/OCA/sale-workflow/zip/refs/heads/14.0 -O sale-workflow.zip && \
     unzip -q sale-workflow.zip && rm sale-workflow.zip && mv sale-workflow-14.0 sale-workflow
 
+## Donwload sale-workflow.
+RUN wget https://codeload.github.com/OCA/stock-logistics-workflow/zip/refs/heads/14.0 -O stock-logistics-workflow.zip && \
+    unzip -q stock-logistics-workflow.zip && rm stock-logistics-workflow.zip && mv stock-logistics-workflow-14.0 stock-logistics-workflow
+
 ## Donwload account-invoicing.
 RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -O account-invoicing.zip && \
     unzip -q account-invoicing.zip && rm account-invoicing.zip && mv account-invoicing-14.0 account-invoicing
@@ -141,6 +145,9 @@ RUN pip3 install --no-cache-dir -r account-invoicing/requirements.txt
 
 ## Install account-reconcile requirements.
 RUN pip3 install --no-cache-dir -r account-reconcile/requirements.txt
+
+## Install stock-logistics-workflow requirements.
+RUN pip3 install --no-cache-dir -r stock-logistics-workflow/requirements.txt
 
 ## Install server-ux requirements.
 #RUN pip3 install --no-cache-dir -r server-ux/requirements.txt && \
