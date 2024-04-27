@@ -47,7 +47,7 @@ export PATH="/opt/odoo:$PATH"
 export PATH="/opt/odoo/odoo:$PATH"
 
 echo "Iniciando o entrypoint com odoo"
-cd /opt/odoo
+cd /opt/odoo/addons
 
 # Se existir a chave tenta baixar os repositórios privados
 if [ -f /opt/.ssh/id_rsa ]; then
