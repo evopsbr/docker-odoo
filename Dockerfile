@@ -33,11 +33,11 @@ RUN wget https://codeload.github.com/OCA/account-reconcile/zip/refs/heads/14.0 -
 #    unzip -q account-reconcile.zip && rm account-reconcile.zip && mv account-reconcile-14.0 account-reconcile
 
 ## Donwload sale-workflow.
-RUN wget https://codeload.github.com/OCA/sale-workflow/zip/refs/heads/14.0 -O sale-workflow.zip && i\
+RUN wget https://codeload.github.com/OCA/sale-workflow/zip/refs/heads/14.0 -O sale-workflow.zip && \
     unzip -q sale-workflow.zip && rm sale-workflow.zip && mv sale-workflow-14.0 sale-workflow
 
 ## Donwload account-invoicing.
-RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -O sale-workflow.zip && i\
+RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -O sale-workflow.zip && \
     unzip -q account-invoicing.zip && rm account-invoicing.zip && mv account-invoicing-14.0 account-invoicing
 
 ## Download server-ux.
