@@ -36,6 +36,10 @@ RUN wget https://codeload.github.com/OCA/account-reconcile/zip/refs/heads/14.0 -
 RUN wget https://codeload.github.com/OCA/sale-workflow/zip/refs/heads/14.0 -O sale-workflow.zip && i\
     unzip -q sale-workflow.zip && rm sale-workflow.zip && mv sale-workflow-14.0 sale-workflow
 
+## Donwload account-invoicing.
+RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -O sale-workflow.zip && i\
+    unzip -q account-invoicing.zip && rm account-invoicing.zip && mv account-invoicing-14.0 account-invoicing
+
 ## Download server-ux.
 #RUN wget https://github.com/oca/server-ux/archive/14.0.zip -O server-ux.zip && \
 #    unzip -q server-ux.zip && rm server-ux.zip && mv server-ux-14.0 server-ux
@@ -127,6 +131,9 @@ RUN pip3 install --no-cache-dir -r contract/requirements.txt
 
 ## Install sale-workflow requirements.
 RUN pip3 install --no-cache-dir -r sale-workflow/requirements.txt
+
+## Install account-invoicing requirements.
+RUN pip3 install --no-cache-dir -r account-invoicing/requirements.txt
 
 ## Install WEB requirements.
 #RUN pip3 install --no-cache-dir -r web/requirements.txt && \
