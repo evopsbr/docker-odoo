@@ -2,8 +2,8 @@
 #####################
 FROM evopsbr/docker-odoo-base:14.0
 
-## Diretorio de trabalho ODOO
-WORKDIR /opt/odoo
+## Diretorio de trabalho Addons ODOO
+WORKDIR /opt/odoo/addons
 
 ### Download dos pacotes e dependencias.
 ########################################
@@ -217,6 +217,10 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 
 ### Configuracoes Odoo
 ######################
+
+## Diretorio de trabalho ODOO
+WORKDIR /opt/odoo
+
 ADD deploy/odoo.conf /etc/odoo/
 RUN chown -R odoo:odoo /opt && \
     chown -R odoo:odoo /etc/odoo/odoo.conf
