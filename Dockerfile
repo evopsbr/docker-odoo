@@ -23,6 +23,8 @@ RUN wget https://codeload.github.com/OCA/account-payment/zip/refs/heads/14.0 -O 
 #    unzip -q web.zip && rm web.zip && mv web-14.0 web
     
 ## Download account-reconcile.
+RUN wget https://codeload.github.com/OCA/account-reconcile/zip/refs/heads/14.0 -O account-reconcile.zip && \
+    unzip -q account-reconcile.zip && rm account-reconcile.zip && mv account-reconcile-14.0 account-reconcile
 #RUN wget https://github.com/oca/account-reconcile/archive/14.0.zip -O account-reconcile.zip && \
 #    unzip -q account-reconcile.zip && rm account-reconcile.zip && mv account-reconcile-14.0 account-reconcile
 
@@ -117,7 +119,7 @@ RUN pip3 install --no-cache-dir -r account-payment/requirements.txt
 #    pip3 install --no-cache-dir -r web/oca_dependencies.txt
 
 ## Install account-reconcile requirements.
-#RUN pip3 install --no-cache-dir -r account-reconcile/requirements.txt
+RUN pip3 install --no-cache-dir -r account-reconcile/requirements.txt
 
 ## Install server-ux requirements.
 #RUN pip3 install --no-cache-dir -r server-ux/requirements.txt && \
