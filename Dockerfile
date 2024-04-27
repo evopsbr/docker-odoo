@@ -2,8 +2,8 @@
 #####################
 FROM evopsbr/docker-odoo-base:14.0
 
-## Diretorio de trabalho Addons ODOO
-WORKDIR /opt/odoo/addons
+## Diretorio de trabalho ODOO
+WORKDIR /opt/odoo
 
 ### Download dos pacotes e dependencias.
 ########################################
@@ -11,6 +11,9 @@ WORKDIR /opt/odoo/addons
 ## Download ODOO.
 RUN wget https://github.com/odoo/odoo/archive/14.0.zip -O odoo.zip && \
     unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo
+
+## Diretorio de trabalho Addons ODOO
+WORKDIR /opt/odoo/addons
 
 ## Download bank-payment.
 RUN wget https://codeload.github.com/OCA/bank-payment/zip/refs/heads/14.0 -O bank-payment.zip && \
@@ -131,11 +134,17 @@ RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -ty
 ### Instalacao e atualizacao de libs e dependencias.
 ####################################################
 
+## Diretorio de trabalho ODOO
+WORKDIR /opt/odoo
+
 ## Update PIP3.
 RUN pip3 install setuptools && pip3 install --no-cache-dir --upgrade pip
 
 ## Install ODOO requirements.
 RUN pip3 install --no-cache-dir -r odoo/requirements.txt
+
+## Diretorio de trabalho Addons ODOO
+WORKDIR /opt/odoo/addons
 
 ## Install BANK-PAYMENT requirements.
 RUN pip3 install --no-cache-dir -r bank-payment/requirements.txt
