@@ -52,6 +52,10 @@ RUN wget https://codeload.github.com/OCA/stock-logistics-warehouse/zip/refs/head
 RUN wget https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O server-tools.zip && \
       unzip -q server-tools.zip && rm server-tools.zip && mv server-tools-14.0 server-tools
 
+## Download server-env.
+RUN wget https://codeload.github.com/OCA/server-env/zip/refs/heads/14.0 -O server-env.zip && \
+      unzip -q server-env.zip && rm server-env.zip && mv server-env-14.0 server-env
+
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -154,8 +158,11 @@ RUN pip3 install --no-cache-dir -r account-reconcile/requirements.txt
 ## Install stock-logistics-workflow requirements.
 RUN pip3 install --no-cache-dir -r stock-logistics-workflow/requirements.txt
 
-# Install server-tools requirements.
+## Install server-tools requirements.
 RUN pip3 install --no-cache-dir -r server-tools/requirements.txt
+
+## Install server-env requirements.
+RUN pip3 install --no-cache-dir -r server-env/requirements.txt
 
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
