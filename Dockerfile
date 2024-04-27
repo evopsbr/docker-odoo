@@ -12,9 +12,11 @@ WORKDIR /opt/odoo
 RUN wget https://github.com/odoo/odoo/archive/14.0.zip -O odoo.zip && \
     unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo
 
+## Download bank-payment.
 RUN wget https://codeload.github.com/OCA/bank-payment/zip/refs/heads/14.0 -O bank-payment.zip && \
     unzip -q bank-payment.zip && rm bank-payment.zip && mv bank-payment-14.0 bank-payment
 
+## Download account-payment.
 RUN wget https://codeload.github.com/OCA/account-payment/zip/refs/heads/14.0 -O account-payment.zip && \
     unzip -q account-payment.zip && rm account-payment.zip && mv account-payment-14.0 account-payment
 
@@ -22,15 +24,9 @@ RUN wget https://codeload.github.com/OCA/account-payment/zip/refs/heads/14.0 -O 
 RUN wget https://codeload.github.com/OCA/contract/zip/refs/heads/14.0 -O contract.zip && \
     unzip -q contract.zip && rm contract.zip && mv contract-14.0 contract
 
-## Download WEB.
-#RUN wget https://github.com/oca/web/archive/14.0.zip -O web.zip && \
-#    unzip -q web.zip && rm web.zip && mv web-14.0 web
-    
 ## Download account-reconcile.
 RUN wget https://codeload.github.com/OCA/account-reconcile/zip/refs/heads/14.0 -O account-reconcile.zip && \
     unzip -q account-reconcile.zip && rm account-reconcile.zip && mv account-reconcile-14.0 account-reconcile
-#RUN wget https://github.com/oca/account-reconcile/archive/14.0.zip -O account-reconcile.zip && \
-#    unzip -q account-reconcile.zip && rm account-reconcile.zip && mv account-reconcile-14.0 account-reconcile
 
 ## Donwload sale-workflow.
 RUN wget https://codeload.github.com/OCA/sale-workflow/zip/refs/heads/14.0 -O sale-workflow.zip && \
@@ -44,6 +40,35 @@ RUN wget https://codeload.github.com/OCA/stock-logistics-workflow/zip/refs/heads
 RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -O account-invoicing.zip && \
     unzip -q account-invoicing.zip && rm account-invoicing.zip && mv account-invoicing-14.0 account-invoicing
 
+## Download manufacture.
+RUN wget https://codeload.github.com/OCA/manufacture/zip/refs/heads/14.0 -O manufacture.zip && \
+    unzip -q manufacture.zip && rm manufacture.zip && mv manufacture-14.0 manufacture
+
+## Download stock-logistics-warehouse
+RUN wget https://codeload.github.com/OCA/stock-logistics-warehouse/zip/refs/heads/14.0 -O stock-logistics-warehouse.zip && \
+    unzip -q stock-logistics-warehouse.zip && rm stock-logistics-warehouse.zip && mv stock-logistics-warehouse-14.0 stock-logistics-warehouse
+
+## Download server-tools.
+RUN wget https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O server-tools.zip && \
+      unzip -q server-tools.zip && rm server-tools.zip && mv server-tools-14.0 server-tools
+
+## Install l10n-brazil requirements.
+RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
+    unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
+
+## Remocao dos add-ons que nao sao pt_BR ou pt.
+RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
+    rm -R debian && rm -R doc && rm -R setup && cd ..
+#    find . -path "*l10n_*" -delete && \
+
+
+
+
+
+## Download WEB.
+#RUN wget https://github.com/oca/web/archive/14.0.zip -O web.zip && \
+#    unzip -q web.zip && rm web.zip && mv web-14.0 web
+    
 ## Download server-ux.
 #RUN wget https://github.com/oca/server-ux/archive/14.0.zip -O server-ux.zip && \
 #    unzip -q server-ux.zip && rm server-ux.zip && mv server-ux-14.0 server-ux
@@ -88,30 +113,14 @@ RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -
 #RUN wget https://github.com/odoo/design-themes/archive/14.0.zip -O design-themes.zip && \
 #    unzip -q design-themes.zip && rm design-themes.zip && mv design-themes-14.0 design-themes
 
-## Download manufacture.
-#RUN wget https://codeload.github.com/OCA/manufacture/zip/refs/heads/14.0 -O manufacture.zip && \
-#    unzip -q manufacture.zip && rm manufacture.zip && mv manufacture-14.0 manufacture
-
 ## Download odoo-brasil.
 #RUN wget https://github.com/evopsbr/odoo-brasil/archive/14.0.zip -O odoo-brasil.zip && \
 #    unzip -q odoo-brasil.zip && rm odoo-brasil.zip && mv odoo-brasil-14.0 odoo-brasil
-
-## Download server-tools.
-#RUN wget https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O server-tools.zip && \
-#    unzip -q server-tools.zip && rm server-tools.zip && mv server-tools-14.0 server-tools
 
 ## Install community-data-files requirements.
 #RUN wget https://codeload.github.com/OCA/community-data-files/zip/refs/heads/14.0 -O community-data-files.zip && \
 #    unzip -q community-data-files.zip && rm community-data-files.zip && mv community-data-files-14.0 community-data-files
 
-## Install l10n-brazil requirements.
-RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
-    unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
-
-## Remocao dos add-ons que nao sao pt_BR ou pt.
-RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
-    rm -R debian && rm -R doc && rm -R setup && cd ..
-#    find . -path "*l10n_*" -delete && \
 
      
 
@@ -139,15 +148,33 @@ RUN pip3 install --no-cache-dir -r sale-workflow/requirements.txt
 ## Install account-invoicing requirements.
 RUN pip3 install --no-cache-dir -r account-invoicing/requirements.txt
 
-## Install WEB requirements.
-#RUN pip3 install --no-cache-dir -r web/requirements.txt && \
-#    pip3 install --no-cache-dir -r web/oca_dependencies.txt
-
 ## Install account-reconcile requirements.
 RUN pip3 install --no-cache-dir -r account-reconcile/requirements.txt
 
 ## Install stock-logistics-workflow requirements.
 RUN pip3 install --no-cache-dir -r stock-logistics-workflow/requirements.txt
+
+# Install server-tools requirements.
+RUN pip3 install --no-cache-dir -r server-tools/requirements.txt
+
+#RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
+RUN pip3 install --no-cache-dir Iugu
+RUN pip3 install --no-cache-dir signxml==2.9.0
+RUN pip3 install --no-cache-dir pyopenssl==22.1.0
+RUN pip3 install --no-cache-dir formio-data==0.4.5
+
+## Install l10n-brazil requirements.
+RUN pip3 install --no-cache-dir -r l10n-brazil/requirements.txt
+RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
+#RUN pip3 install --no-cache-dir -r l10n-brazil/oca_dependencies.txt
+
+
+
+
+
+## Install WEB requirements.
+#RUN pip3 install --no-cache-dir -r web/requirements.txt && \
+#    pip3 install --no-cache-dir -r web/oca_dependencies.txt
 
 ## Install server-ux requirements.
 #RUN pip3 install --no-cache-dir -r server-ux/requirements.txt && \
@@ -175,24 +202,10 @@ RUN pip3 install --no-cache-dir -r stock-logistics-workflow/requirements.txt
 #RUN pip3 install --no-cache-dir -r edi/requirements.txt
 #RUN pip3 install --no-cache-dir -r edi/test-requirements.txt
 ##RUN pip3 install --no-cache-dir -r edi/oca_dependencies.txt
-    
-#RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
-#RUN pip3 install --no-cache-dir odoo14-addon-account-move-base-import
-RUN pip3 install --no-cache-dir Iugu
-RUN pip3 install --no-cache-dir signxml==2.9.0
-RUN pip3 install --no-cache-dir pyopenssl==22.1.0
-RUN pip3 install --no-cache-dir formio-data==0.4.5
-
-## Install server-tools requirements.
-#RUN pip3 install --no-cache-dir -r server-tools/requirements.txt
 
 ## Install community-data-files requirements.
 #RUN pip3 install --no-cache-dir -r community-data-files/requirements.txt
 
-## Install l10n-brazil requirements.
-RUN pip3 install --no-cache-dir -r l10n-brazil/requirements.txt
-RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
-#RUN pip3 install --no-cache-dir -r l10n-brazil/oca_dependencies.txt
 
 
 ### Configuracoes Odoo
