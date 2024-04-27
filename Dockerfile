@@ -13,7 +13,7 @@ RUN wget https://github.com/odoo/odoo/archive/14.0.zip -O odoo.zip && \
     unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo
 
 RUN wget https://codeload.github.com/OCA/bank-payment/zip/refs/heads/14.0 -O bank-payment.zip && \
-    unzip -q bank-payment.zip && rm bank-payment.zip && bank-payment-14.0 bank-payment
+    unzip -q bank-payment.zip && rm bank-payment.zip && mv bank-payment-14.0 bank-payment
 
 ## Download WEB.
 #RUN wget https://github.com/oca/web/archive/14.0.zip -O web.zip && \
