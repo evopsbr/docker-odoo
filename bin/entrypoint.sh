@@ -31,7 +31,7 @@ if [ $UID -eq 0 ]; then
     chown -R odoo:odoo /var/log/odoo
     chown odoo:odoo /etc/odoo/odoo.conf
     chown odoo:odoo /var/run/odoo.pid
-    chown odoo:odoo /opt/odoo/autoupdate
+    chown odoo:odoo $ODOOHOME/autoupdate
 
   fi
 
@@ -40,14 +40,14 @@ if [ $UID -eq 0 ]; then
     export LOG_FILE=False
   fi
 
-  cd /opt/odoo
+  cd $ODOOHOME
   chown odoo:odoo /etc/odoo/odoo.conf
   exec env su odoo "$0" -- "$@"
 
 fi
 
-export PATH="/opt/odoo:$PATH"
-export PATH="/opt/odoo/odoo:$PATH"
+export PATH="$ODOOHOME:$PATH"
+export PATH="$ODOOHOME/odoo:$PATH"
 
 echo "Iniciando o entrypoint com odoo"
 cd $ODOOHOME
@@ -63,7 +63,7 @@ directories=$(ls -d -1 $ODOOHOME/addons/**)
 path=","
 for directory in $directories; do
   if [ -d $directory ]; then
-    if [ $directory != "/opt/odoo/odoo" ]; then
+    if [ $directory != "$ODOOHOME/odoo" ]; then
       path="$path""$directory",
     fi
   fi

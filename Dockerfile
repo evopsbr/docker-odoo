@@ -5,6 +5,10 @@ FROM evopsbr/docker-odoo-base:14.0
 ## Diretorio de trabalho ODOO
 WORKDIR /opt/odoo
 
+ADD deploy/odoo.conf /etc/odoo/
+RUN chown -R odoo:odoo /opt && \
+    chown -R odoo:odoo /etc/odoo/odoo.conf
+
 ### Download dos pacotes e dependencias.
 ########################################
 
@@ -233,9 +237,9 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 ## Diretorio de trabalho ODOO
 WORKDIR /opt/odoo
 
-ADD deploy/odoo.conf /etc/odoo/
-RUN chown -R odoo:odoo /opt && \
-    chown -R odoo:odoo /etc/odoo/odoo.conf
+#ADD deploy/odoo.conf /etc/odoo/
+#RUN chown -R odoo:odoo /opt && \
+#    chown -R odoo:odoo /etc/odoo/odoo.conf
 
 RUN mkdir /opt/.ssh && \
     chown -R odoo:odoo /opt/.ssh
@@ -246,9 +250,6 @@ RUN chown odoo:odoo /opt/odoo/autoupdate && \
     chmod +x /opt/odoo/autoupdate && \
     chmod +x /opt/odoo/entrypoint.sh
     
-## Diretorio de trabalho ODOO
-WORKDIR /opt/odoo
-
 ENV PYTHONPATH=$PYTHONPATH:/opt/odoo/odoo
 ENV PG_HOST=localhost
 ENV PG_PORT=5432
