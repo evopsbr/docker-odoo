@@ -63,6 +63,9 @@ RUN wget https://codeload.github.com/OCA/server-env/zip/refs/heads/14.0 -O serve
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
 
+
+## Diretorio de trabalho ODOO
+WORKDIR /opt/odoo
 ## Remocao dos add-ons que nao sao pt_BR ou pt.
 RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
     rm -R debian && rm -R doc && rm -R setup && cd ..
