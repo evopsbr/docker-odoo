@@ -37,7 +37,7 @@ RUN wget https://codeload.github.com/OCA/sale-workflow/zip/refs/heads/14.0 -O sa
     unzip -q sale-workflow.zip && rm sale-workflow.zip && mv sale-workflow-14.0 sale-workflow
 
 ## Donwload account-invoicing.
-RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -O sale-workflow.zip && \
+RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -O account-invoicing.zip && \
     unzip -q account-invoicing.zip && rm account-invoicing.zip && mv account-invoicing-14.0 account-invoicing
 
 ## Download server-ux.
