@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+##
+ODOOHOME=/opt/odoo
+
 if [ $UID -eq 0 ]; then
 
   echo "Iniciando o entrypoint com root"
@@ -47,7 +50,7 @@ export PATH="/opt/odoo:$PATH"
 export PATH="/opt/odoo/odoo:$PATH"
 
 echo "Iniciando o entrypoint com odoo"
-cd /opt/odoo/addons
+cd #ODOOHOME
 
 # Se existir a chave tenta baixar os repositórios privados
 if [ -f /opt/.ssh/id_rsa ]; then
@@ -56,7 +59,7 @@ if [ -f /opt/.ssh/id_rsa ]; then
 fi
 
 # Monta o addons_path
-directories=$(ls -d -1 $PWD/**)
+directories=$(ls -d -1 $ODOOHOME/addons/**)
 path=","
 for directory in $directories; do
   if [ -d $directory ]; then
