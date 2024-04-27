@@ -12,6 +12,9 @@ WORKDIR /opt/odoo
 RUN wget https://github.com/odoo/odoo/archive/14.0.zip -O odoo.zip && \
     unzip -q odoo.zip && rm odoo.zip && mv odoo-14.0 odoo
 
+RUN wget https://codeload.github.com/OCA/bank-payment/zip/refs/heads/14.0 -O bank-payment.zip && \
+    unzip -q bank-payment.zip && rm bank-payment.zip && bank-payment-14.0 bank-payment
+
 ## Download WEB.
 #RUN wget https://github.com/oca/web/archive/14.0.zip -O web.zip && \
 #    unzip -q web.zip && rm web.zip && mv web-14.0 web
@@ -99,6 +102,9 @@ RUN pip3 install setuptools && pip3 install --no-cache-dir --upgrade pip
 
 ## Install ODOO requirements.
 RUN pip3 install --no-cache-dir -r odoo/requirements.txt
+
+## Install BANK-PAYMENT requirements.
+RUN pip3 install --no-cache-dir -r bank-payment/requirements.txt
 
 ## Install WEB requirements.
 #RUN pip3 install --no-cache-dir -r web/requirements.txt && \
