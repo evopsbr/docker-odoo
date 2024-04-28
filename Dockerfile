@@ -188,7 +188,7 @@ RUN pip3 install --no-cache-dir -r server-env/requirements.txt
 RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
 
 ## Install server-backend requirements.
-RUN pip3 install --no-cache-dir -r server-backend/requirements.txt
+#RUN pip3 install --no-cache-dir -r server-backend/requirements.txt
 
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
@@ -224,9 +224,6 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
     
 ## Install account-financial-tools requirements.
 #RUN pip3 install --no-cache-dir -r account-financial-tools/requirements.txt
-
-## Install reporting-engine requirements.
-#RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
 
 ## Install edi requirements.
 #RUN pip3 install --no-cache-dir -r edi/requirements.txt
