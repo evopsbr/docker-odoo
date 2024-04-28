@@ -63,6 +63,14 @@ RUN wget https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O ser
 RUN wget https://codeload.github.com/OCA/server-env/zip/refs/heads/14.0 -O server-env.zip && \
       unzip -q server-env.zip && rm server-env.zip && mv server-env-14.0 server-env
 
+## Download reporting-engine.
+RUN wget https://github.com/oca/reporting-engine/archive/14.0.zip -O reporting-engine.zip && \
+    unzip -q reporting-engine.zip && rm reporting-engine.zip && mv reporting-engine-14.0 reporting-engine
+
+## Download reporting-engine.
+RUN wget https://codeload.github.com/OCA/server-backend/zip/refs/heads/14.0.zip -O server-backend.zip && \
+    unzip -q server-backend.zip && rm server-backend.zip && mv server-backend-14.0 server-backend
+
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -87,10 +95,6 @@ RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -ty
 #RUN wget https://github.com/oca/server-ux/archive/14.0.zip -O server-ux.zip && \
 #    unzip -q server-ux.zip && rm server-ux.zip && mv server-ux-14.0 server-ux
     
-## Download reporting-engine.
-#RUN wget https://github.com/oca/reporting-engine/archive/14.0.zip -O reporting-engine.zip && \
-#    unzip -q reporting-engine.zip && rm reporting-engine.zip && mv reporting-engine-14.0 reporting-engine
-
 ## Download account-financial-reporting.
 #RUN wget https://github.com/oca/account-financial-reporting/archive/14.0.zip -O account-financial-reporting.zip && \
 #    unzip -q account-financial-reporting.zip && rm account-financial-reporting.zip && mv account-financial-reporting-14.0 account-financial-reporting
@@ -180,6 +184,12 @@ RUN pip3 install --no-cache-dir -r server-tools/requirements.txt
 ## Install server-env requirements.
 RUN pip3 install --no-cache-dir -r server-env/requirements.txt
 
+## Install reporting-engine requirements.
+RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
+
+## Install server-backend requirements.
+RUN pip3 install --no-cache-dir -r server-backend/requirements.txt
+
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
 RUN pip3 install --no-cache-dir signxml==2.9.0
@@ -203,9 +213,6 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 #RUN pip3 install --no-cache-dir -r server-ux/requirements.txt && \
 #    pip3 install --no-cache-dir -r server-ux/test-requirements.txt 
     
-## Install reporting-engine requirements.
-#RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
-
 ## Install account-financial-reporting requirements.
 #RUN pip3 install --no-cache-dir -r account-financial-reporting/requirements.txt
     
