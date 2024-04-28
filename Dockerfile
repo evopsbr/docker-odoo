@@ -67,8 +67,8 @@ RUN wget https://codeload.github.com/OCA/server-env/zip/refs/heads/14.0 -O serve
 RUN wget https://github.com/oca/reporting-engine/archive/14.0.zip -O reporting-engine.zip && \
     unzip -q reporting-engine.zip && rm reporting-engine.zip && mv reporting-engine-14.0 reporting-engine
 
-## Download reporting-engine.
-RUN wget https://codeload.github.com/OCA/server-backend/zip/refs/heads/14.0.zip -O server-backend.zip && \
+## Download server-backend.
+RUN wget https://codeload.github.com/OCA/server-backend/zip/refs/heads/14.0 -O server-backend.zip && \
     unzip -q server-backend.zip && rm server-backend.zip && mv server-backend-14.0 server-backend
 
 ## Install l10n-brazil requirements.
