@@ -95,6 +95,10 @@ RUN wget https://codeload.github.com/OCA/account-financial-tools/zip/refs/heads/
 RUN wget https://github.com/oca/account-financial-reporting/archive/14.0.zip -O account-financial-reporting.zip && \
     unzip -q account-financial-reporting.zip && rm account-financial-reporting.zip && mv account-financial-reporting-14.0 account-financial-reporting
     
+## Download account-financial-reporting.
+RUN wget https://codeload.github.com/OCA/purchase-workflow/zip/refs/heads/14.0 -O purchase-workflow.zip && \
+    unzip -q purchase-workflow.zip && rm purchase-workflow.zip && mv purchase-workflow-14.0 purchase-workflow
+    
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
