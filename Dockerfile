@@ -71,6 +71,10 @@ RUN wget https://github.com/oca/reporting-engine/archive/14.0.zip -O reporting-e
 RUN wget https://codeload.github.com/OCA/server-backend/zip/refs/heads/14.0 -O server-backend.zip && \
     unzip -q server-backend.zip && rm server-backend.zip && mv server-backend-14.0 server-backend
 
+## Download server-ux.
+RUN wget https://github.com/oca/server-ux/archive/14.0.zip -O server-ux.zip && \
+    unzip -q server-ux.zip && rm server-ux.zip && mv server-ux-14.0 server-ux
+    
 ## Download QUEUE.
 RUN wget https://codeload.github.com/OCA/queue/zip/refs/heads/14.0 -O queue.zip && \
     unzip -q queue.zip && rm queue.zip && mv queue-14.0 queue
@@ -107,18 +111,10 @@ RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -ty
 #RUN wget https://github.com/oca/web/archive/14.0.zip -O web.zip && \
 #    unzip -q web.zip && rm web.zip && mv web-14.0 web
     
-## Download server-ux.
-#RUN wget https://github.com/oca/server-ux/archive/14.0.zip -O server-ux.zip && \
-#    unzip -q server-ux.zip && rm server-ux.zip && mv server-ux-14.0 server-ux
-    
 ## Download COD137-APPS.
 #RUN wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
 #    unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps
     
-## Download reporting-engine.
-#RUN wget https://codeload.github.com/OCA/reporting-engine/zip/refs/heads/14.0 -O reporting-engine.zip && \
-#    unzip -q reporting-engine.zip && rm reporting-engine.zip && mv reporting-engine-14.0 reporting-engine
-
 ## Download edi.
 #RUN wget https://codeload.github.com/OCA/edi/zip/refs/heads/14.0 -O edi.zip && \
 #    unzip -q edi.zip && rm edi.zip && mv edi-14.0 edi
@@ -188,6 +184,9 @@ RUN pip3 install --no-cache-dir -r server-tools/requirements.txt
 ## Install server-env requirements.
 RUN pip3 install --no-cache-dir -r server-env/requirements.txt
 
+## Install server-ux requirements.
+RUN pip3 install --no-cache-dir -r server-ux/requirements.txt
+    
 ## Install reporting-engine requirements.
 RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
 
@@ -225,10 +224,6 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 #RUN pip3 install --no-cache-dir -r web/requirements.txt && \
 #    pip3 install --no-cache-dir -r web/oca_dependencies.txt
 
-## Install server-ux requirements.
-#RUN pip3 install --no-cache-dir -r server-ux/requirements.txt && \
-#    pip3 install --no-cache-dir -r server-ux/test-requirements.txt 
-    
 ## Install COD137-APPS requirements.
 #RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
     
