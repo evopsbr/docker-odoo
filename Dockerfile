@@ -71,6 +71,10 @@ RUN wget https://github.com/oca/reporting-engine/archive/14.0.zip -O reporting-e
 RUN wget https://codeload.github.com/OCA/server-backend/zip/refs/heads/14.0 -O server-backend.zip && \
     unzip -q server-backend.zip && rm server-backend.zip && mv server-backend-14.0 server-backend
 
+## Download QUEUE.
+RUN wget https://codeload.github.com/OCA/queue/zip/refs/heads/14.0 -O queue.zip && \
+    unzip -q queue.zip && rm queue.zip && mv queue-14.0 queue
+    
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -102,10 +106,6 @@ RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -ty
 ## Download COD137-APPS.
 #RUN wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
 #    unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps
-    
-## Download QUEUE.
-#RUN wget https://codeload.github.com/OCA/queue/zip/refs/heads/14.0 -O queue.zip && \
-#    unzip -q queue.zip && rm queue.zip && mv queue-14.0 queue
     
 ## Download account-financial-tools.
 #RUN wget https://codeload.github.com/OCA/account-financial-tools/zip/refs/heads/14.0 -O account-financial-tools.zip && \
@@ -187,6 +187,9 @@ RUN pip3 install --no-cache-dir -r server-env/requirements.txt
 ## Install reporting-engine requirements.
 RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
 
+## Install QUEUE requirements.
+RUN pip3 install --no-cache-dir -r queue/requirements.txt
+    
 ## Install server-backend requirements.
 #RUN pip3 install --no-cache-dir -r server-backend/requirements.txt
 
@@ -218,9 +221,6 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
     
 ## Install COD137-APPS requirements.
 #RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
-    
-## Install QUEUE requirements.
-#RUN pip3 install --no-cache-dir -r queue/requirements.txt
     
 ## Install account-financial-tools requirements.
 #RUN pip3 install --no-cache-dir -r account-financial-tools/requirements.txt
