@@ -95,9 +95,13 @@ RUN wget https://codeload.github.com/OCA/account-financial-tools/zip/refs/heads/
 RUN wget https://github.com/oca/account-financial-reporting/archive/14.0.zip -O account-financial-reporting.zip && \
     unzip -q account-financial-reporting.zip && rm account-financial-reporting.zip && mv account-financial-reporting-14.0 account-financial-reporting
     
-## Download account-financial-reporting.
+## Download purchase-workflow.
 RUN wget https://codeload.github.com/OCA/purchase-workflow/zip/refs/heads/14.0 -O purchase-workflow.zip && \
     unzip -q purchase-workflow.zip && rm purchase-workflow.zip && mv purchase-workflow-14.0 purchase-workflow
+    
+## Download connector.
+RUN wget https://codeload.github.com/OCA/connector/zip/refs/heads/14.0 -O connector.zip && \
+    unzip -q connector.zip && rm connector.zip && mv connector-14.0 connector
     
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
@@ -194,7 +198,7 @@ RUN pip3 install --no-cache-dir -r server-env/requirements.txt
 
 ## Install server-ux requirements.
 RUN pip3 install --no-cache-dir -r server-ux/requirements.txt
-    
+
 ## Install reporting-engine requirements.
 RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
 
@@ -210,9 +214,12 @@ RUN pip3 install --no-cache-dir -r storage/requirements.txt
 ## Install account-financial-tools requirements.
 RUN pip3 install --no-cache-dir -r account-financial-tools/requirements.txt
 
+## Install connector requirements.
+RUN pip3 install --no-cache-dir -r connector/requirements.txt
+
 ## Install account-financial-reporting requirements.
 #RUN pip3 install --no-cache-dir -r account-financial-reporting/requirements.txt
-    
+
 ## Install server-backend requirements.
 #RUN pip3 install --no-cache-dir -r server-backend/requirements.txt
 
