@@ -75,6 +75,14 @@ RUN wget https://codeload.github.com/OCA/server-backend/zip/refs/heads/14.0 -O s
 RUN wget https://codeload.github.com/OCA/queue/zip/refs/heads/14.0 -O queue.zip && \
     unzip -q queue.zip && rm queue.zip && mv queue-14.0 queue
     
+## Download SOCIAL.
+RUN wget https://codeload.github.com/OCA/social/zip/refs/heads/14.0 -O social.zip && \
+    unzip -q social.zip && rm social.zip && mv social-14.0 social
+    
+## Download account-financial-reporting.
+RUN wget https://github.com/oca/account-financial-reporting/archive/14.0.zip -O account-financial-reporting.zip && \
+    unzip -q account-financial-reporting.zip && rm account-financial-reporting.zip && mv account-financial-reporting-14.0 account-financial-reporting
+    
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -98,10 +106,6 @@ RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -ty
 ## Download server-ux.
 #RUN wget https://github.com/oca/server-ux/archive/14.0.zip -O server-ux.zip && \
 #    unzip -q server-ux.zip && rm server-ux.zip && mv server-ux-14.0 server-ux
-    
-## Download account-financial-reporting.
-#RUN wget https://github.com/oca/account-financial-reporting/archive/14.0.zip -O account-financial-reporting.zip && \
-#    unzip -q account-financial-reporting.zip && rm account-financial-reporting.zip && mv account-financial-reporting-14.0 account-financial-reporting
     
 ## Download COD137-APPS.
 #RUN wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
@@ -189,7 +193,13 @@ RUN pip3 install --no-cache-dir -r reporting-engine/requirements.txt
 
 ## Install QUEUE requirements.
 RUN pip3 install --no-cache-dir -r queue/requirements.txt
+
+## Install SOCIAL requirements.
+RUN pip3 install --no-cache-dir -r social/requirements.txt
     
+## Install account-financial-tools requirements.
+RUN pip3 install --no-cache-dir -r account-financial-tools/requirements.txt
+
 ## Install server-backend requirements.
 #RUN pip3 install --no-cache-dir -r server-backend/requirements.txt
 
@@ -222,9 +232,6 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 ## Install COD137-APPS requirements.
 #RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
     
-## Install account-financial-tools requirements.
-#RUN pip3 install --no-cache-dir -r account-financial-tools/requirements.txt
-
 ## Install edi requirements.
 #RUN pip3 install --no-cache-dir -r edi/requirements.txt
 #RUN pip3 install --no-cache-dir -r edi/test-requirements.txt
