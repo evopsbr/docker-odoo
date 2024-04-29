@@ -218,6 +218,7 @@ RUN pip3 install --no-cache-dir -r account-financial-tools/requirements.txt
 
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
+RUN pip3 install --no-cache-dir mock
 RUN pip3 install --no-cache-dir signxml==2.9.0
 RUN pip3 install --no-cache-dir pyopenssl==22.1.0
 RUN pip3 install --no-cache-dir formio-data==0.4.5
