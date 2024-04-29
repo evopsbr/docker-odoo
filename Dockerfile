@@ -83,6 +83,10 @@ RUN wget https://codeload.github.com/OCA/queue/zip/refs/heads/14.0 -O queue.zip 
 RUN wget https://codeload.github.com/OCA/social/zip/refs/heads/14.0 -O social.zip && \
     unzip -q social.zip && rm social.zip && mv social-14.0 social
     
+## Download STORAGE.
+RUN wget https://codeload.github.com/OCA/storage/zip/refs/heads/14.0 -O storage.zip && \
+    unzip -q storage.zip && rm storage.zip && mv storage-14.0 storage
+    
 ## Download account-financial-tools.
 RUN wget https://codeload.github.com/OCA/account-financial-tools/zip/refs/heads/14.0 -O account-financial-tools.zip && \
     unzip -q account-financial-tools.zip && rm account-financial-tools.zip && mv account-financial-tools-14.0 account-financial-tools
@@ -195,7 +199,10 @@ RUN pip3 install --no-cache-dir -r queue/requirements.txt
 
 ## Install SOCIAL requirements.
 RUN pip3 install --no-cache-dir -r social/requirements.txt
-    
+
+## Install STORAGE requirements.
+RUN pip3 install --no-cache-dir -r storage/requirements.txt
+
 ## Install account-financial-tools requirements.
 RUN pip3 install --no-cache-dir -r account-financial-tools/requirements.txt
 
