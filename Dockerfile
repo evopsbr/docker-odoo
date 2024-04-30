@@ -47,6 +47,10 @@ RUN wget https://codeload.github.com/OCA/stock-logistics-workflow/zip/refs/heads
 RUN wget https://github.com/oca/web/archive/14.0.zip -O web.zip && \
     unzip -q web.zip && rm web.zip && mv web-14.0 web
     
+## Download mis-builder.
+RUN wget https://codeload.github.com/OCA/mis-builder/zip/refs/heads/14.0 -O mis-builder.zip && \
+    unzip -q mis-builder.zip && rm mis-builder.zip && mv mis-builder-14.0 mis-builder
+    
 ## Donwload account-invoicing.
 RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -O account-invoicing.zip && \
     unzip -q account-invoicing.zip && rm account-invoicing.zip && mv account-invoicing-14.0 account-invoicing
@@ -139,6 +143,14 @@ RUN wget https://codeload.github.com/OCA/product-attribute/zip/refs/heads/14.0 -
 RUN wget https://codeload.github.com/OCA/intrastat-extrastat/zip/refs/heads/14.0 -O intrastat-extrastat.zip && \
     unzip -q intrastat-extrastat.zip && rm intrastat-extrastat.zip && mv intrastat-extrastat-14.0 intrastat-extrastat
 
+## Download COD137-APPS.
+RUN wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
+    unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps
+    
+## Download design-themes.
+RUN wget https://github.com/odoo/design-themes/archive/14.0.zip -O design-themes.zip && \
+    unzip -q design-themes.zip && rm design-themes.zip && mv design-themes-14.0 design-themes
+
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -155,21 +167,9 @@ RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -ty
 
 
 
-## Download COD137-APPS.
-#RUN wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
-#    unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps
-    
 ## Download edi.
 #RUN wget https://codeload.github.com/OCA/edi/zip/refs/heads/14.0 -O edi.zip && \
 #    unzip -q edi.zip && rm edi.zip && mv edi-14.0 edi
-
-## Download mis-builder.
-#RUN wget https://github.com/oca/mis-builder/archive/14.0.zip -O mis-builder.zip && \
-#    unzip -q mis-builder.zip && rm mis-builder.zip && mv mis-builder-14.0 mis-builder
-    
-## Download design-themes.
-#RUN wget https://github.com/odoo/design-themes/archive/14.0.zip -O design-themes.zip && \
-#    unzip -q design-themes.zip && rm design-themes.zip && mv design-themes-14.0 design-themes
 
 ## Download odoo-brasil.
 #RUN wget https://github.com/evopsbr/odoo-brasil/archive/14.0.zip -O odoo-brasil.zip && \
@@ -272,6 +272,9 @@ RUN pip3 install --no-cache-dir -r product-attribute/requirements.txt
 ## Install intrastat-extrastat requirements.
 RUN pip3 install --no-cache-dir -r intrastat-extrastat/requirements.txt
 
+## Install COD137-APPS requirements.
+RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
+    
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
 RUN pip3 install --no-cache-dir mock
@@ -288,9 +291,6 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 
 
 
-## Install COD137-APPS requirements.
-#RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
-    
 ## Install edi requirements.
 #RUN pip3 install --no-cache-dir -r edi/requirements.txt
 #RUN pip3 install --no-cache-dir -r edi/test-requirements.txt
