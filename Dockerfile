@@ -111,6 +111,10 @@ RUN wget https://codeload.github.com/OCA/delivery-carrier/zip/refs/heads/14.0 -O
 RUN wget https://codeload.github.com/OCA/account-closing/zip/refs/heads/14.0 -O account-closing.zip && \
     unzip -q account-closing.zip && rm account-closing.zip && mv account-closing-14.0 account-closing
     
+## Download partner-contact.
+RUN wget https://codeload.github.com/OCA/partner-contact/zip/refs/heads/14.0 -O partner-contact.zip && \
+    unzip -q partner-contact.zip && rm partner-contact.zip && mv partner-contact-14.0 partner-contact
+    
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -236,6 +240,9 @@ RUN pip3 install --no-cache-dir -r delivery-carrier/requirements.txt
 
 ## Install account-closing requirements.
 RUN pip3 install --no-cache-dir -r account-closing/requirements.txt
+
+## Install partner-contact requirements.
+RUN pip3 install --no-cache-dir -r partner-contact/requirements.txt
 
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
