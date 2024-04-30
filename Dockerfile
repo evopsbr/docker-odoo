@@ -103,9 +103,13 @@ RUN wget https://codeload.github.com/OCA/purchase-workflow/zip/refs/heads/14.0 -
 RUN wget https://codeload.github.com/OCA/connector/zip/refs/heads/14.0 -O connector.zip && \
     unzip -q connector.zip && rm connector.zip && mv connector-14.0 connector
     
-## Download connector.
+## Download delivery-carrier.
 RUN wget https://codeload.github.com/OCA/delivery-carrier/zip/refs/heads/14.0 -O delivery-carrier.zip && \
     unzip -q delivery-carrier.zip && rm delivery-carrier.zip && mv delivery-carrier-14.0 delivery-carrier
+    
+## Download account-closing.
+RUN wget https://codeload.github.com/OCA/account-closing/zip/refs/heads/14.0 -O account-closing.zip && \
+    unzip -q account-closing.zip && rm account-closing.zip && mv account-closing-14.0 account-closing
     
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
@@ -229,6 +233,9 @@ RUN pip3 install --no-cache-dir -r connector/requirements.txt
 
 ## Install server-backend requirements.
 RUN pip3 install --no-cache-dir -r delivery-carrier/requirements.txt
+
+## Install account-closing requirements.
+RUN pip3 install --no-cache-dir -r account-closing/requirements.txt
 
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
