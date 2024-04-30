@@ -43,6 +43,10 @@ RUN wget https://codeload.github.com/OCA/sale-workflow/zip/refs/heads/14.0 -O sa
 RUN wget https://codeload.github.com/OCA/stock-logistics-workflow/zip/refs/heads/14.0 -O stock-logistics-workflow.zip && \
     unzip -q stock-logistics-workflow.zip && rm stock-logistics-workflow.zip && mv stock-logistics-workflow-14.0 stock-logistics-workflow
 
+## Download WEB.
+RUN wget https://github.com/oca/web/archive/14.0.zip -O web.zip && \
+    unzip -q web.zip && rm web.zip && mv web-14.0 web
+    
 ## Donwload account-invoicing.
 RUN wget https://codeload.github.com/OCA/account-invoicing/zip/refs/heads/14.0 -O account-invoicing.zip && \
     unzip -q account-invoicing.zip && rm account-invoicing.zip && mv account-invoicing-14.0 account-invoicing
@@ -123,6 +127,10 @@ RUN wget https://codeload.github.com/OCA/currency/zip/refs/heads/14.0 -O currenc
 RUN wget https://codeload.github.com/OCA/connector-telephony/zip/refs/heads/14.0 -O connector-telephony.zip && \
     unzip -q connector-telephony.zip && rm connector-telephony.zip && mv connector-telephony-14.0 connector-telephony
 
+## Download commission.
+RUN wget https://github.com/OCA/commission/archive/14.0.zip -O commission.zip && \
+    unzip -q commission.zip && rm commission.zip && mv commission-14.0 commission
+
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -139,10 +147,6 @@ RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -ty
 
 
 
-## Download WEB.
-#RUN wget https://github.com/oca/web/archive/14.0.zip -O web.zip && \
-#    unzip -q web.zip && rm web.zip && mv web-14.0 web
-    
 ## Download COD137-APPS.
 #RUN wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
 #    unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps
@@ -155,10 +159,6 @@ RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -ty
 #RUN wget https://github.com/oca/mis-builder/archive/14.0.zip -O mis-builder.zip && \
 #    unzip -q mis-builder.zip && rm mis-builder.zip && mv mis-builder-14.0 mis-builder
     
-## Download commission.
-#RUN wget https://github.com/OCA/commission/archive/14.0.zip -O commission.zip && \
-#    unzip -q commission.zip && rm commission.zip && mv commission-14.0 commission
-
 ## Download design-themes.
 #RUN wget https://github.com/odoo/design-themes/archive/14.0.zip -O design-themes.zip && \
 #    unzip -q design-themes.zip && rm design-themes.zip && mv design-themes-14.0 design-themes
@@ -249,6 +249,9 @@ RUN pip3 install --no-cache-dir -r delivery-carrier/requirements.txt
 ## Install account-closing requirements.
 RUN pip3 install --no-cache-dir -r account-closing/requirements.txt
 
+## Install WEB requirements.
+RUN pip3 install --no-cache-dir -r web/requirements.txt
+
 ## Install partner-contact requirements.
 RUN pip3 install --no-cache-dir -r partner-contact/requirements.txt
 
@@ -270,10 +273,6 @@ RUN pip3 install --no-cache-dir -r l10n-brazil/test-requirements.txt
 
 
 
-
-## Install WEB requirements.
-#RUN pip3 install --no-cache-dir -r web/requirements.txt && \
-#    pip3 install --no-cache-dir -r web/oca_dependencies.txt
 
 ## Install COD137-APPS requirements.
 #RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
