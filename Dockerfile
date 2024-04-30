@@ -135,6 +135,10 @@ RUN wget https://github.com/OCA/commission/archive/14.0.zip -O commission.zip &&
 RUN wget https://codeload.github.com/OCA/product-attribute/zip/refs/heads/14.0 -O product-attribute.zip  && \
     unzip -q product-attribute.zip && rm product-attribute.zip && mv product-attribute-14.0 product-attribute
 
+## Download intrastat-extrastat.
+RUN wget https://codeload.github.com/OCA/intrastat-extrastat/zip/refs/heads/14.0 -O intrastat-extrastat.zip && \
+    unzip -q intrastat-extrastat.zip && rm intrastat-extrastat.zip && mv intrastat-extrastat-14.0 intrastat-extrastat
+
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -264,6 +268,9 @@ RUN pip3 install --no-cache-dir -r connector-telephony/requirements.txt
 
 ## Install product-attribute requirements.
 RUN pip3 install --no-cache-dir -r product-attribute/requirements.txt
+
+## Install intrastat-extrastat requirements.
+RUN pip3 install --no-cache-dir -r intrastat-extrastat/requirements.txt
 
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
