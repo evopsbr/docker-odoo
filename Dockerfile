@@ -131,6 +131,10 @@ RUN wget https://codeload.github.com/OCA/connector-telephony/zip/refs/heads/14.0
 RUN wget https://github.com/OCA/commission/archive/14.0.zip -O commission.zip && \
     unzip -q commission.zip && rm commission.zip && mv commission-14.0 commission
 
+## Download product-attribute.
+RUN wget https://codeload.github.com/OCA/product-attribute/zip/refs/heads/14.0 -O product-attribute.zip  && \
+    unzip -q product-attribute.zip && rm product-attribute.zip && mv product-attribute-14.0 product-attribute
+
 ## Install l10n-brazil requirements.
 RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n-brazil.zip && \
     unzip -q l10n-brazil.zip && rm l10n-brazil.zip && mv l10n-brazil-14.0 l10n-brazil
@@ -257,6 +261,9 @@ RUN pip3 install --no-cache-dir -r partner-contact/requirements.txt
 
 ## Install connector-telephony requirements.
 RUN pip3 install --no-cache-dir -r connector-telephony/requirements.txt
+
+## Install product-attribute requirements.
+RUN pip3 install --no-cache-dir -r product-attribute/requirements.txt
 
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
