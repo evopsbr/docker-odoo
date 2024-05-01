@@ -144,8 +144,8 @@ RUN wget https://codeload.github.com/OCA/intrastat-extrastat/zip/refs/heads/14.0
     unzip -q intrastat-extrastat.zip && rm intrastat-extrastat.zip && mv intrastat-extrastat-14.0 intrastat-extrastat
 
 ## Download COD137-APPS.
-RUN wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
-    unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps
+#RUN wget https://github.com/code-137/odoo-apps/archive/14.0.zip -O code137-apps.zip && \
+#    unzip -q code137-apps.zip && rm code137-apps.zip && mv odoo-apps-14.0 code137-apps
     
 ## Download design-themes.
 RUN wget https://github.com/odoo/design-themes/archive/14.0.zip -O design-themes.zip && \
@@ -272,8 +272,8 @@ RUN pip3 install --no-cache-dir -r product-attribute/requirements.txt
 ## Install intrastat-extrastat requirements.
 RUN pip3 install --no-cache-dir -r intrastat-extrastat/requirements.txt
 
-## Install COD137-APPS requirements.
-RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
+### Install COD137-APPS requirements.
+#RUN pip3 install --no-cache-dir -r code137-apps/requirements.txt
     
 #RUN pip3 install --no-cache-dir pytrustnfe3 python3-cnab python3-boleto pycnab240 python-sped
 RUN pip3 install --no-cache-dir Iugu
