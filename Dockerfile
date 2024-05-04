@@ -27,6 +27,10 @@ RUN wget https://codeload.github.com/OCA/bank-payment/zip/refs/heads/14.0 -O ban
 RUN wget https://codeload.github.com/OCA/account-payment/zip/refs/heads/14.0 -O account-payment.zip && \
     unzip -q account-payment.zip && rm account-payment.zip && mv account-payment-14.0 account-payment
 
+## Download account-analytic.
+RUN wget https://codeload.github.com/OCA/account-analytic/zip/refs/heads/14.0 -O account-analytic.zip && \
+    unzip -q account-analytic.zip && rm account-analytic.zip && mv account-analytic-14.0 account-analytic
+
 ## Download contract.
 RUN wget https://codeload.github.com/OCA/contract/zip/refs/heads/14.0 -O contract.zip && \
     unzip -q contract.zip && rm contract.zip && mv contract-14.0 contract
@@ -159,9 +163,11 @@ RUN wget https://codeload.github.com/OCA/l10n-brazil/zip/refs/heads/14.0 -O l10n
 ## Diretorio de trabalho ODOO
 WORKDIR /opt/odoo
 ## Remocao dos add-ons que nao sao pt_BR ou pt.
-RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po"  -type f -delete && \
-    rm -R debian && rm -R doc && rm -R setup && cd ..
+#RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po" -type f -delete && \
 #    find . -path "*l10n_*" -delete && \
+RUN find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po" -type f -delete && \
+    find . -path "*l10n_*" -not -path "*l10n_br*" -delete && \
+    cd odoo && rm -R debian && rm -R doc && rm -R setup && cd ..
 
 
 
