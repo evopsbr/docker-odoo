@@ -35,6 +35,10 @@ RUN wget https://codeload.github.com/OCA/account-analytic/zip/refs/heads/14.0 -O
 RUN wget https://codeload.github.com/OCA/contract/zip/refs/heads/14.0 -O contract.zip && \
     unzip -q contract.zip && rm contract.zip && mv contract-14.0 contract
 
+## Download contract.
+RUN wget https://codeload.github.com/OCA/brand/zip/refs/heads/14.0 -O brand.zip && \
+    unzip -q brand.zip && rm brand.zip && mv brand-14.0 brand
+
 ## Download account-reconcile.
 RUN wget https://codeload.github.com/OCA/account-reconcile/zip/refs/heads/14.0 -O account-reconcile.zip && \
     unzip -q account-reconcile.zip && rm account-reconcile.zip && mv account-reconcile-14.0 account-reconcile
