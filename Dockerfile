@@ -170,8 +170,8 @@ WORKDIR /opt/odoo
 #RUN cd odoo && find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po" -type f -delete && \
 #    find . -path "*l10n_*" -delete && \
 RUN find . -name "*.po" -not -name "pt_BR.po" -not -name "pt.po" -type f -delete && \
-    find . -path "*l10n_*" -not -path "*l10n_br*" -delete && \
     cd odoo && rm -R debian && rm -R doc && rm -R setup && cd ..
+#    find . -path "*l10n_*" -not -path "*l10n_br*" -delete && \
 
 
 
