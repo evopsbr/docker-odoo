@@ -75,6 +75,10 @@ RUN wget https://codeload.github.com/OCA/stock-logistics-warehouse/zip/refs/head
 RUN wget https://codeload.github.com/OCA/server-tools/zip/refs/heads/14.0 -O server-tools.zip && \
       unzip -q server-tools.zip && rm server-tools.zip && mv server-tools-14.0 server-tools
 
+## Download server-auth.
+RUN wget https://codeload.github.com/OCA/server-auth/zip/refs/heads/14.0 -O server-auth.zip && \
+      unzip -q server-auth.zip && rm server-auth.zip && mv server-auth-14.0 server-auth
+
 ## Download server-env.
 RUN wget https://codeload.github.com/OCA/server-env/zip/refs/heads/14.0 -O server-env.zip && \
       unzip -q server-env.zip && rm server-env.zip && mv server-env-14.0 server-env
@@ -227,6 +231,9 @@ RUN pip3 install --no-cache-dir -r account-reconcile/requirements.txt
 
 ## Install stock-logistics-workflow requirements.
 RUN pip3 install --no-cache-dir -r stock-logistics-workflow/requirements.txt
+
+## Install server-auth requirements.
+RUN pip3 install --no-cache-dir -r server-auth/requirements.txt
 
 ## Install server-tools requirements.
 RUN pip3 install --no-cache-dir -r server-tools/requirements.txt
